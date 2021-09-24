@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t moudud/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run moudud/docker-react npm run test -- --coverage
